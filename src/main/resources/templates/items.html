@@ -1,0 +1,112 @@
+<!DOCTYPE HTML>
+<html ng-app="mtit_angular">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>MTIT Solutions</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- CSS Plugins -->
+<link rel="stylesheet"
+	href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<style>
+		.badge-success {
+			background-color: #aa0000 !important;
+			color: #fff !important;
+			border:1px solid #aa0000;
+			border-radius: 2px;
+			padding:0px 3px;
+		}
+		
+			a {
+		color:#fff !important;
+	}
+	
+	body {
+		font-family: Roboto, Tahoma;
+	}
+	</style>
+</head>
+<body>
+<nav class="navbar navbar-toggleable-md bg-danger"
+			style="border-radius:0px; height:100%;">
+			<div class="container">
+				<div class="col-lg-12">
+					<a class="navbar-brand" style="float:left;" href="/home">MTIT Solutions</a>
+					<div class="navbar-nav" style="margin-left: 100px; float:left;">
+						<a class="nav-item nav-link" href="/items">Movies</a>
+						</div>
+						<div class="navbar-nav" style="float:right;">
+						<a class="nav-item nav-link" style="float:right;" href="/admin">Admin</a>
+						<a class="nav-item nav-link" style="float:right;" href="/logout">Logout</a>
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	
+
+	<section ng-controller="ItemController" ng-init="intialize()">
+		<div growl=""></div>
+		<div class="container">
+			<div class="col-lg-12">
+						<div class="card" style="width: 20rem; float:left; margin:10px;" ng-repeat="item in items">
+						<div class="card-block">
+							    <h4 class="card-title">{{item.name}}</h4>
+							    <span class="badge badge-success">{{item.type}}</span>
+							    
+							    <p class="card-text">{{item.description}}</p>
+							    <a href="#" class="btn btn-primary">View Details</a>
+							  </div>
+						</div>
+
+			</div>
+		</div>
+
+		<!-- Modal -->
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Edit Available
+							Credit</h5>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="recipient-name" class="form-control-label">Credit:</label>
+								<input type="text" class="form-control" ng-model="balance" />
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" ng-click="update()">Save</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</section>
+
+	<section>
+		<!-- Js Plugins -->
+		<script src="plugins/bower_components/angular/angular.min.js"></script>
+		<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="plugins/bower_components/tether/dist/js/tether.min.js"></script>
+		<script
+			src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script
+			src="plugins/bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+
+		<!-- Local Scripts -->
+		<script src="app.js"></script>
+
+		<!-- Controllers -->
+		<script src="itemController.js"></script>
+	</section>
+</body>
+</html>

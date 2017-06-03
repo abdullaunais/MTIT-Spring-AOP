@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<html ng-app="mtit_angular">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>MTIT Solutions</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- CSS Plugins -->
+<link rel="stylesheet"
+	href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+	<style>
+		.badge-success {
+			background-color: #aa0000 !important;
+			color: #fff !important;
+			border:1px solid #aa0000;
+			border-radius: 2px;
+			padding:0px 3px;
+		}
+		
+			a {
+		color:#fff !important;
+	}
+	
+	body {
+		font-family: Roboto, Tahoma;
+	}
+	.input-group {
+		margin-top:10px;
+		margin-bottom:10px;
+	}
+	</style>
+</head>
+<body>
+	<nav class="navbar navbar-toggleable-md bg-danger"
+			style="border-radius:0px; height:100%;">
+			<div class="container">
+				<div class="col-lg-12">
+					<a class="navbar-brand" style="float:left;" href="/home">MTIT Solutions</a>
+					<div class="navbar-nav" style="margin-left: 100px; float:left;">
+						<a class="nav-item nav-link" href="/items">Movies</a>
+						<a class="nav-item nav-link" href="/users">Users</a>
+						</div>
+						<div class="navbar-nav" style="float:right;">
+						<a class="nav-item nav-link" style="float:right;" href="/admin">Admin</a>
+						<a class="nav-item nav-link" style="float:right;" href="/logout">Logout</a>
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	
+
+	<section ng-controller="UsersController" ng-init="intialize()">
+		<div growl=""></div>
+		<div class="container">
+			<div class="col-lg-12">
+				<button type="button" class="btn btn-default" style="width:100%; margin-top:20px; margin-bottom:20px;" data-toggle="modal" data-target="#myModal">
+				 	Add User
+				</button>
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Name</th>
+							<th>Username</th>
+							<th>Email</th>
+							<th>Password</th>
+							<th>Type</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="user in users">
+							<td>{{$index+1}}</td>
+							<td>{{user.name}}</td>
+							<td>{{user.username}}</td>
+							<td>{{user.email}}</td>
+							<td>{{user.password}}</td>
+							<td>{{user.type}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+
+	</section>
+	
+	<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="/addUser" method="post">
+
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="name" name="name" placeholder="Name"/>
+		</div>
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="username" name="username" placeholder="Username"/>
+		</div>
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="email" name="email" placeholder="Email"/>
+		</div>
+		<div class="input-group">
+			<input type="password" class="form-control" ng-model="password" name="password" placeholder="Password"/>
+		</div>
+		<div class="input-group">
+			<input type="text" class="form-control" ng-model="type" name="type" placeholder="Type"/>
+		</div>
+	
+        <button type="submit" ng-click="addUserClick()" class="btn btn-primary" data-dismiss="#myModal">Save changes</button>
+        <button type="button" class="btn btn-secondary">Close</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+	<section>
+		<!-- Js Plugins -->
+		<script src="plugins/bower_components/angular/angular.min.js"></script>
+		<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="plugins/bower_components/tether/dist/js/tether.min.js"></script>
+		<script
+			src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script
+			src="plugins/bower_components/angular-growl-v2/build/angular-growl.min.js"></script>
+
+		<!-- Local Scripts -->
+		<script src="app.js"></script>
+
+		<!-- Controllers -->
+		<script src="usersController.js"></script>
+	</section>
+</body>
+</html>

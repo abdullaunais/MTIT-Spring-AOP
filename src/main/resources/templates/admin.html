@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html ng-app="mtit_angular">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<title>MTIT Solutions</title>
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<!-- Bootstrap -->
+<link rel="stylesheet"
+	href="plugins/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+<style>
+	a {
+		color:#fff !important;
+	}
+	
+	body {
+		font-family: Roboto, Tahoma;
+	}
+</style>
+
+</head>
+<body>
+	<section ng-controller="HomeController">
+	
+			<nav class="navbar navbar-toggleable-md bg-danger"
+			style="border-radius:0px; height:100%;">
+			<div class="container">
+				<div class="col-lg-12">
+					<a class="navbar-brand" style="float:left;" href="/home">MTIT Solutions</a>
+					<div class="navbar-nav" style="margin-left: 100px; float:left;">
+						<a class="nav-item nav-link" href="/items">Movies</a>
+						<a class="nav-item nav-link" href="/users">Users</a>
+						</div>
+						<div class="navbar-nav" style="float:right;">
+						<a class="nav-item nav-link" style="float:right;" href="/admin">Admin</a>
+						<a class="nav-item nav-link" style="float:right;" href="/logout">Logout</a>
+						
+					</div>
+				</div>
+			</div>
+		</nav>
+
+	</section>
+
+	<section>
+		<!-- Js Plugins -->
+		<script src="plugins/bower_components/angular/angular.min.js"></script>
+		<script src="plugins/bower_components/jquery/dist/jquery.min.js"></script>
+		<script src="plugins/bower_components/tether/dist/js/tether.min.js"></script>
+		<script
+			src="plugins/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- Local Scripts -->
+		<script src="app.js"></script>
+
+		<!-- Controllers -->
+		<script src="homeController.js"></script>
+	</section>
+</body>
+</html>
